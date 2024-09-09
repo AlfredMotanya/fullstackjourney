@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 8-Ball</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: white;
+        }
+
+        #magicBall {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        #answer {
+            font-size: 20px;
+            text-align: center;
+            max-width: 150px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #shakeButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #shakeButton:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="magicBall">
+        <div id="answer">Ask me anything!</div>
+    </div>
+    <button id="shakeButton">Shake the 8-Ball</button>
+
+    <script>
+        const answers = [
+            "It is certain",
+            "It is decidedly so",
+            "Without a doubt",
+            "Yes, definitely",
+            "You may rely on it",
+            "As I see it, yes",
+            "Most likely",
+            "Outlook good",
+            "Yes",
+            "Signs point to yes",
+            "Reply hazy, try again",
+            "Ask again later",
+            "Better not tell you now",
+            "Cannot predict now",
+            "Concentrate and ask again",
+            "Don't count on it",
+            "My reply is no",
+            "My sources say no",
+            "Outlook not so good",
+            "Very doubtful"
+        ];
+        prompt ('Enter your Question')
+        const answerElement = document.getElementById('answer');
+        const shakeButton = document.getElementById('shakeButton');
+
+        shakeButton.addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * answers.length);
+            const randomAnswer = answers[randomIndex];
+            answerElement.textContent = randomAnswer;
+        });
+    </script>
+
+</body>
+</html>
